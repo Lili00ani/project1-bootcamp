@@ -1,0 +1,16 @@
+.board {
+  display: grid;
+  grid-template-columns: 500px 500px 500px;
+  grid-template-rows: 500px 500px 500px;
+  gap: 150px;
+  position: absolute;
+}
+
+.mole {
+  background-color: orange;
+  border-radius: 50%;
+  width: 300px;
+  height: 300px;
+  align-items: center;
+  justify-content: center;
+}
