@@ -1,16 +1,32 @@
 .board {
   display: grid;
-  grid-template-columns: 500px 500px 500px;
-  grid-template-rows: 500px 500px 500px;
-  gap: 150px;
+  grid-template-columns: 20vh 20vh 20vh;
+  grid-template-rows: 20vh 20vh 20vh;
+  gap: 2vh;
   position: absolute;
 }
 
 .mole {
   background-color: orange;
   border-radius: 50%;
-  width: 300px;
-  height: 300px;
+  width: 15vh;
+  height: 15vh;
+  display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.main {
+  display: flex;
+  width: 100vp;
+  justify-content: center;
+}
+
+.header {
+  font-size: 20px;
+  display: flex;
+  width: 100vp;
+  justify-content: center;
+  margin-bottom: 2vh;
+  margin-top: 2vh;
 }
