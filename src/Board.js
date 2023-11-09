@@ -25,7 +25,9 @@ class Board extends React.Component {
     this.state = {
       board: createBoard(),
       score: 0,
-      gameStatus: true,
+      mode: "play",
+      timerDuration: 60,
+      timerRemaining: 60,
     };
   }
 
@@ -51,7 +53,21 @@ class Board extends React.Component {
     }));
   };
 
+  countTimer = () => {
+    this.timerId2 = setInterval(() => {
+      if (this.state.timerRemaining > 0) {
+        this.setState((prevState) => ({
+          timerRemaining: prevState.timerRemaining - 1,
+        }));
+      } else {
+        this.setState({ mode: "end" });
+        clearInterval(this.timerId2);
+      }
+    }, 1000);
+  };
+
   componentDidMount() {
+    this.countTimer();
     this.timerId = setInterval(() => {
       this.addMole();
     }, 2000);
@@ -66,7 +82,8 @@ class Board extends React.Component {
     return (
       <div>
         <div className="header">
-          <h5>Score: {this.state.score}</h5>
+          <p>Score: {this.state.score}</p>
+          <p>Time: {this.state.timerRemaining} s</p>
         </div>
         <div className="main">
           <div className="board">
