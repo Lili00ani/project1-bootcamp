@@ -2,7 +2,8 @@
   display: grid;
   grid-template-columns: 20vh 20vh 20vh;
   grid-template-rows: 20vh 20vh 20vh;
-  gap: 2vh;
+  grid-row-gap: 2vh;
+  grid-column-gap: 10vh;
   position: absolute;
 }
 
@@ -28,7 +29,8 @@
   flex-direction: column;
   width: 100vw;
   align-items: center;
-  margin-bottom: 10vh;
+  margin-bottom: 5vh;
+  margin-top: 7vh;
 }
 
 .restart {

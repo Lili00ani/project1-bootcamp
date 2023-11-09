@@ -5,7 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 const BOARD_X = 3;
 const BOARD_Y = 3;
-const TIMER = 10;
+const TIMER = 30;
 
 function createBoard() {
   const board = [];
@@ -99,7 +99,7 @@ class Board extends React.Component {
     return (
       <div>
         <div className="header">
-          <p>Score: {this.state.score}</p>
+          <p>Score: {this.state.score} points</p>
           <p>Time Left: {this.state.timerRemaining} s</p>
         </div>
         <div className="main">
