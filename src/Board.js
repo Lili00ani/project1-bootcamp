@@ -1,9 +1,11 @@
 import React from "react";
 import Mole from "./Mole";
 import "./board.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const BOARD_X = 3;
 const BOARD_Y = 3;
+const TIMER = 10;
 
 function createBoard() {
   const board = [];
@@ -26,8 +28,8 @@ class Board extends React.Component {
       board: createBoard(),
       score: 0,
       mode: "play",
-      timerDuration: 60,
-      timerRemaining: 60,
+      timerDuration: TIMER,
+      timerRemaining: TIMER,
     };
   }
 
@@ -38,7 +40,6 @@ class Board extends React.Component {
     const copiedBoard = [...this.state.board];
     // const copiedBoard = this.state.board.map((row) => [...row]);
     copiedBoard[indexI][indexJ] = true;
-    console.log(`${indexI}, ${indexJ}`);
 
     this.setState({
       board: copiedBoard,
@@ -47,12 +48,21 @@ class Board extends React.Component {
 
   countScore = () => {
     //update all the scores
-    console.log("whack");
+
     this.setState((prevState) => ({
       score: prevState.score + 10,
     }));
   };
 
+  reset = () => {
+    this.setState({
+      board: createBoard(),
+      score: 0,
+      mode: "play",
+      timerDuration: TIMER,
+      timerRemaining: TIMER,
+    });
+  };
   countTimer = () => {
     this.timerId2 = setInterval(() => {
       if (this.state.timerRemaining > 0) {
@@ -70,7 +80,7 @@ class Board extends React.Component {
     this.countTimer();
     this.timerId = setInterval(() => {
       this.addMole();
-    }, 2000);
+    }, 1000);
   }
 
   componentWillUnmount() {
@@ -78,60 +88,72 @@ class Board extends React.Component {
   }
 
   render() {
-    console.log(this.state.board);
+    const messageEnd = (
+      <div>
+        <button className="btn btn-dark" onClick={() => this.reset()}>
+          Play Again
+        </button>
+      </div>
+    );
+
     return (
       <div>
         <div className="header">
           <p>Score: {this.state.score}</p>
-          <p>Time: {this.state.timerRemaining} s</p>
+          <p>Time Left: {this.state.timerRemaining} s</p>
         </div>
         <div className="main">
-          <div className="board">
-            <div>
-              {this.state.board[0][0] ? (
-                <Mole onClick={() => this.countScore()} />
-              ) : null}
+          {this.state.mode === "play" && (
+            <div className="board">
+              <div>
+                {this.state.board[0][0] ? (
+                  <Mole onClick={() => this.countScore()} />
+                ) : null}
+              </div>
+              <div>
+                {this.state.board[0][1] ? (
+                  <Mole onClick={() => this.countScore()} />
+                ) : null}
+              </div>
+              <div>
+                {this.state.board[0][2] ? (
+                  <Mole onClick={() => this.countScore()} />
+                ) : null}
+              </div>
+              <div>
+                {this.state.board[1][0] ? (
+                  <Mole onClick={() => this.countScore()} />
+                ) : null}
+              </div>
+              <div>
+                {this.state.board[1][1] ? (
+                  <Mole onClick={() => this.countScore()} />
+                ) : null}
+              </div>
+              <div>
+                {this.state.board[1][2] ? (
+                  <Mole onClick={() => this.countScore()} />
+                ) : null}
+              </div>
+              <div>
+                {this.state.board[2][0] ? (
+                  <Mole onClick={() => this.countScore()} />
+                ) : null}
+              </div>
+              <div>
+                {this.state.board[2][1] ? (
+                  <Mole onClick={() => this.countScore()} />
+                ) : null}
+              </div>
+              <div>
+                {this.state.board[2][2] ? (
+                  <Mole onClick={() => this.countScore()} />
+                ) : null}
+              </div>
             </div>
-            <div>
-              {this.state.board[0][1] ? (
-                <Mole onClick={() => this.countScore()} />
-              ) : null}
-            </div>
-            <div>
-              {this.state.board[0][2] ? (
-                <Mole onClick={() => this.countScore()} />
-              ) : null}
-            </div>
-            <div>
-              {this.state.board[1][0] ? (
-                <Mole onClick={() => this.countScore()} />
-              ) : null}
-            </div>
-            <div>
-              {this.state.board[1][1] ? (
-                <Mole onClick={() => this.countScore()} />
-              ) : null}
-            </div>
-            <div>
-              {this.state.board[1][2] ? (
-                <Mole onClick={() => this.countScore()} />
-              ) : null}
-            </div>
-            <div>
-              {this.state.board[2][0] ? (
-                <Mole onClick={() => this.countScore()} />
-              ) : null}
-            </div>
-            <div>
-              {this.state.board[2][1] ? (
-                <Mole onClick={() => this.countScore()} />
-              ) : null}
-            </div>
-            <div>
-              {this.state.board[2][2] ? (
-                <Mole onClick={() => this.countScore()} />
-              ) : null}
-            </div>
+          )}
+          <div className="restart">
+            {this.state.mode === "end" && messageEnd}
           </div>
         </div>
       </div>

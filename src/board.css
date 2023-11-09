@@ -18,7 +18,7 @@
 
 .main {
   display: flex;
-  width: 100vp;
+  width: 100vw;
   justify-content: center;
 }
 
@@ -27,5 +27,13 @@
   display: flex;
   flex-direction: column;
   width: 100vw;
+  align-items: center;
+  margin-bottom: 10vh;
+}
+
+.restart {
+  display: flex;
+  height: 60vh;
+  justify-content: center;
   align-items: center;
 }
