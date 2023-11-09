@@ -6,10 +6,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <div className="header">
-          <h5>Score: </h5>
-        </div>
-        <div className="main">
+        <div>
           <Board />
         </div>
       </div>

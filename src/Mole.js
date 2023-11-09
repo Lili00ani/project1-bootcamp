@@ -20,7 +20,7 @@ class Mole extends React.Component {
   hideMoleAfter = () => {
     setTimeout(() => {
       this.hideMole();
-    }, 1000);
+    }, 800);
   };
 
   //trigger hideMoleAfter, after mole appear.
@@ -28,13 +28,17 @@ class Mole extends React.Component {
     this.hideMoleAfter();
   }
 
+  handleClick = () => {
+    this.props.onClick();
+  };
+
   render() {
     const { isVisible } = this.state;
     return (
       <div>
         {isVisible && (
           <div>
-            <h1 className="mole"></h1>
+            <h1 className="mole" onClick={this.handleClick}></h1>
           </div>
         )}
       </div>

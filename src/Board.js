@@ -24,6 +24,8 @@ class Board extends React.Component {
     //creating 3x3 empty board
     this.state = {
       board: createBoard(),
+      score: 0,
+      gameStatus: true,
     };
   }
 
@@ -31,7 +33,7 @@ class Board extends React.Component {
   addMole = () => {
     let indexI = Math.floor(Math.random() * 3);
     let indexJ = Math.floor(Math.random() * 3);
-    const copiedBoard = createBoard();
+    const copiedBoard = [...this.state.board];
     // const copiedBoard = this.state.board.map((row) => [...row]);
     copiedBoard[indexI][indexJ] = true;
     console.log(`${indexI}, ${indexJ}`);
@@ -41,10 +43,18 @@ class Board extends React.Component {
     });
   };
 
+  countScore = () => {
+    //update all the scores
+    console.log("whack");
+    this.setState((prevState) => ({
+      score: prevState.score + 10,
+    }));
+  };
+
   componentDidMount() {
     this.timerId = setInterval(() => {
       this.addMole();
-    }, 3000);
+    }, 2000);
   }
 
   componentWillUnmount() {
@@ -54,25 +64,59 @@ class Board extends React.Component {
   render() {
     console.log(this.state.board);
     return (
-      <div className="board">
-        {/* {this.state.board.map((row, i) => (
-          <div key={i}>
-            {row.map((cell, j) => (
-              <div key={`${i}${j}`}>
-                {this.state.board[i][j] ? <Mole /> : null}
-              </div>
-            ))}
+      <div>
+        <div className="header">
+          <h5>Score: {this.state.score}</h5>
+        </div>
+        <div className="main">
+          <div className="board">
+            <div>
+              {this.state.board[0][0] ? (
+                <Mole onClick={() => this.countScore()} />
+              ) : null}
+            </div>
+            <div>
+              {this.state.board[0][1] ? (
+                <Mole onClick={() => this.countScore()} />
+              ) : null}
+            </div>
+            <div>
+              {this.state.board[0][2] ? (
+                <Mole onClick={() => this.countScore()} />
+              ) : null}
+            </div>
+            <div>
+              {this.state.board[1][0] ? (
+                <Mole onClick={() => this.countScore()} />
+              ) : null}
+            </div>
+            <div>
+              {this.state.board[1][1] ? (
+                <Mole onClick={() => this.countScore()} />
+              ) : null}
+            </div>
+            <div>
+              {this.state.board[1][2] ? (
+                <Mole onClick={() => this.countScore()} />
+              ) : null}
+            </div>
+            <div>
+              {this.state.board[2][0] ? (
+                <Mole onClick={() => this.countScore()} />
+              ) : null}
+            </div>
+            <div>
+              {this.state.board[2][1] ? (
+                <Mole onClick={() => this.countScore()} />
+              ) : null}
+            </div>
+            <div>
+              {this.state.board[2][2] ? (
+                <Mole onClick={() => this.countScore()} />
+              ) : null}
+            </div>
           </div>
-        ))} */}
-        <div>{this.state.board[0][0] ? <Mole /> : null}</div>
-        <div>{this.state.board[0][1] ? <Mole /> : null}</div>
-        <div>{this.state.board[0][2] ? <Mole /> : null}</div>
-        <div>{this.state.board[1][0] ? <Mole /> : null}</div>
-        <div>{this.state.board[1][1] ? <Mole /> : null}</div>
-        <div>{this.state.board[1][2] ? <Mole /> : null}</div>
-        <div>{this.state.board[2][0] ? <Mole /> : null}</div>
-        <div>{this.state.board[2][1] ? <Mole /> : null}</div>
-        <div>{this.state.board[2][2] ? <Mole /> : null}</div>
+        </div>
       </div>
     );
   }
