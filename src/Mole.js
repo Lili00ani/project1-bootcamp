@@ -38,7 +38,7 @@ class Mole extends React.Component {
       <div>
         {isVisible && (
           <div>
-            <h1 className="mole" onClick={this.handleClick}></h1>
+            <div className="mole" onClick={this.handleClick}></div>
           </div>
         )}
       </div>

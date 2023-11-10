@@ -43,7 +43,7 @@
 .front-page {
   display: flex;
   flex-direction: column;
-  height: 60vh;
+  height: 100vh;
   justify-content: center;
   align-items: center;
 }
@@ -52,5 +52,5 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 25vh;
+  margin-top: 5vh;
 }
