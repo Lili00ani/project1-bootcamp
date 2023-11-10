@@ -2,6 +2,7 @@ import React from "react";
 import Mole from "./Mole";
 import "./board.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import audio from "./audio/sound.wav";
 
 const BOARD_X = 3;
 const BOARD_Y = 3;
@@ -87,6 +88,10 @@ class Board extends React.Component {
     clearInterval(this.timerId);
   }
 
+  playAudio = () => {
+    new Audio(audio).play();
+  };
+
   render() {
     const messageEnd = (
       <div>
@@ -107,47 +112,92 @@ class Board extends React.Component {
             <div className="board">
               <div>
                 {this.state.board[0][0] ? (
-                  <Mole onClick={() => this.countScore()} />
+                  <Mole
+                    onClick={() => {
+                      this.countScore();
+                      this.playAudio();
+                    }}
+                  />
                 ) : null}
               </div>
               <div>
                 {this.state.board[0][1] ? (
-                  <Mole onClick={() => this.countScore()} />
+                  <Mole
+                    onClick={() => {
+                      this.countScore();
+                      this.playAudio();
+                    }}
+                  />
                 ) : null}
               </div>
               <div>
                 {this.state.board[0][2] ? (
-                  <Mole onClick={() => this.countScore()} />
+                  <Mole
+                    onClick={() => {
+                      this.countScore();
+                      this.playAudio();
+                    }}
+                  />
                 ) : null}
               </div>
               <div>
                 {this.state.board[1][0] ? (
-                  <Mole onClick={() => this.countScore()} />
+                  <Mole
+                    onClick={() => {
+                      this.countScore();
+                      this.playAudio();
+                    }}
+                  />
                 ) : null}
               </div>
               <div>
                 {this.state.board[1][1] ? (
-                  <Mole onClick={() => this.countScore()} />
+                  <Mole
+                    onClick={() => {
+                      this.countScore();
+                      this.playAudio();
+                    }}
+                  />
                 ) : null}
               </div>
               <div>
                 {this.state.board[1][2] ? (
-                  <Mole onClick={() => this.countScore()} />
+                  <Mole
+                    onClick={() => {
+                      this.countScore();
+                      this.playAudio();
+                    }}
+                  />
                 ) : null}
               </div>
               <div>
                 {this.state.board[2][0] ? (
-                  <Mole onClick={() => this.countScore()} />
+                  <Mole
+                    onClick={() => {
+                      this.countScore();
+                      this.playAudio();
+                    }}
+                  />
                 ) : null}
               </div>
               <div>
                 {this.state.board[2][1] ? (
-                  <Mole onClick={() => this.countScore()} />
+                  <Mole
+                    onClick={() => {
+                      this.countScore();
+                      this.playAudio();
+                    }}
+                  />
                 ) : null}
               </div>
               <div>
                 {this.state.board[2][2] ? (
-                  <Mole onClick={() => this.countScore()} />
+                  <Mole
+                    onClick={() => {
+                      this.countScore();
+                      this.playAudio();
+                    }}
+                  />
                 ) : null}
               </div>
             </div>
