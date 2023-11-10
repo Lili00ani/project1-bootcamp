@@ -101,7 +101,6 @@ class Board extends React.Component {
         </button>
       </div>
     );
-    console.log(this.state.board);
 
     return (
       <div>

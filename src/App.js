@@ -17,7 +17,6 @@ class App extends React.Component {
   };
 
   render() {
-    console.log("Rendering App with showBoard:", this.state.showBoard);
     return (
       <div>
         {this.state.showBoard ? (
