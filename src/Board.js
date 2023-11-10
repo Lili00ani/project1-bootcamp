@@ -38,8 +38,9 @@ class Board extends React.Component {
   addMole = () => {
     let indexI = Math.floor(Math.random() * 3);
     let indexJ = Math.floor(Math.random() * 3);
-    const copiedBoard = [...this.state.board];
+    console.log(indexI, indexJ);
     // const copiedBoard = this.state.board.map((row) => [...row]);
+    const copiedBoard = createBoard();
     copiedBoard[indexI][indexJ] = true;
 
     this.setState({
@@ -60,10 +61,10 @@ class Board extends React.Component {
       board: createBoard(),
       score: 0,
       mode: "play",
-      timerDuration: TIMER,
       timerRemaining: TIMER,
     });
   };
+
   countTimer = () => {
     this.timerId2 = setInterval(() => {
       if (this.state.timerRemaining > 0) {
@@ -81,7 +82,7 @@ class Board extends React.Component {
     this.countTimer();
     this.timerId = setInterval(() => {
       this.addMole();
-    }, 1000);
+    }, 2000);
   }
 
   componentWillUnmount() {
@@ -100,6 +101,7 @@ class Board extends React.Component {
         </button>
       </div>
     );
+    console.log(this.state.board);
 
     return (
       <div>
@@ -202,6 +204,7 @@ class Board extends React.Component {
               </div>
             </div>
           )}
+
           <div className="restart">
             {this.state.mode === "end" && messageEnd}
           </div>

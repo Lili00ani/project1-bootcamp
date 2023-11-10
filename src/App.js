@@ -1,14 +1,30 @@
 import React from "react";
-import "./App.css";
 import Board from "./Board";
+import Home from "./Home";
+import "./App.css";
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      showBoard: false,
+    };
+  }
+
+  onPlayClick = () => {
+    this.setState((prevState) => ({ showBoard: !prevState.showBoard }));
+  };
+
   render() {
+    console.log("Rendering App with showBoard:", this.state.showBoard);
     return (
       <div>
-        <div>
+        {this.state.showBoard ? (
           <Board />
-        </div>
+        ) : (
+          <Home onPlayClick={this.onPlayClick} />
+        )}
       </div>
     );
   }
