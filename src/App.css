@@ -129,12 +129,9 @@
 }
 .front-page > h1 {
   font-family: "Blomberg", Times, serif;
-  font-size: 5rem;
+  font-size: 4.5rem;
   color: orange;
-  display: flex;
-  width: 100vw;
-  justify-content: center;
-  /* background-color: white; */
+  text-align: center;
   -webkit-text-stroke: 5px orangered;
 }
 .start {
