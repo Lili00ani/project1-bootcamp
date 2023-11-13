@@ -11,7 +11,8 @@
     grid-row-gap: 2vh;
     grid-column-gap: 10vh;
     position: absolute;
-    cursor: grab;
+    /* cursor: grab; */
+    cursor: url("img/drumstick.png"), auto;
   }
 
   .board > div {
@@ -27,6 +28,18 @@
   .mole {
     position: relative;
     background-image: url("./img/mock.png");
+    background-size: cover;
+    top: -12vh;
+    width: 20vh;
+    height: 20vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .activeMole {
+    position: relative;
+    background-image: url("./img/shock.png");
     background-size: cover;
     top: -12vh;
     width: 20vh;
@@ -87,11 +100,18 @@
   height: 100vh;
   justify-content: center;
   align-items: center;
+  background-image: url("./img/mock2.png");
+  background-size: 2vw;
+  background-position: -10px 0px;
 }
 .front-page > h1 {
   font-family: "Blomberg", Times, serif;
-  font-size: 90px;
+  font-size: 5rem;
   color: orange;
+  display: flex;
+  width: 100vw;
+  justify-content: center;
+  /* background-color: white; */
   -webkit-text-stroke: 5px orangered;
 }
 .start {

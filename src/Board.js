@@ -2,11 +2,11 @@ import React from "react";
 import Mole from "./Mole";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import audio from "./audio/sound.wav";
+import audio from "./audio/chick.mp3";
 
 const BOARD_X = 3;
 const BOARD_Y = 3;
-const TIMER = 60;
+const TIMER = 50;
 
 function createBoard() {
   const board = [];
@@ -102,7 +102,7 @@ class Board extends React.Component {
       </div>
     );
 
-    const moleDuration = 1100 - this.state.score * 8;
+    const moleDuration = Math.max(550, 1100 - this.state.score * 8);
 
     return (
       <div>

@@ -1,7 +1,14 @@
 import React from "react";
 import "./App.css";
+import intro from "./audio/intro.mp3";
 
 class Home extends React.Component {
+  playAudio = () => {
+    const audio = new Audio(intro);
+    audio.loop = true;
+    audio.play();
+  };
+
   render() {
     return (
       <div className="front-page">
@@ -10,7 +17,10 @@ class Home extends React.Component {
           <button
             type="button"
             class="btn btn-dark"
-            onClick={this.props.onPlayClick}
+            onClick={() => {
+              this.props.onPlayClick();
+              this.playAudio();
+            }}
           >
             Play
           </button>

@@ -7,6 +7,7 @@ class Mole extends React.Component {
     this.state = {
       isVisible: true,
       duration: this.props.moleDuration,
+      style: "mole",
     };
   }
 
@@ -31,6 +32,9 @@ class Mole extends React.Component {
 
   handleClick = () => {
     this.props.onClick();
+    this.setState({
+      style: "activeMole",
+    });
   };
 
   render() {
@@ -38,7 +42,9 @@ class Mole extends React.Component {
     return (
       <div>
         <div>
-          {isVisible && <div className="mole" onClick={this.handleClick}></div>}
+          {isVisible && (
+            <div className={this.state.style} onClick={this.handleClick}></div>
+          )}
         </div>
       </div>
     );
