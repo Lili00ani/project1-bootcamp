@@ -6,6 +6,7 @@ class Mole extends React.Component {
     super(props);
     this.state = {
       isVisible: true,
+      duration: this.props.moleDuration,
     };
   }
 
@@ -20,7 +21,7 @@ class Mole extends React.Component {
   hideMoleAfter = () => {
     setTimeout(() => {
       this.hideMole();
-    }, 800);
+    }, this.state.duration);
   };
 
   //trigger hideMoleAfter, after mole appear.

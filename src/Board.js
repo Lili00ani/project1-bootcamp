@@ -6,7 +6,7 @@ import audio from "./audio/sound.wav";
 
 const BOARD_X = 3;
 const BOARD_Y = 3;
-const TIMER = 30;
+const TIMER = 60;
 
 function createBoard() {
   const board = [];
@@ -102,6 +102,8 @@ class Board extends React.Component {
       </div>
     );
 
+    const moleDuration = 1000 - this.state.score * 5;
+
     return (
       <div>
         <div className="header">
@@ -114,6 +116,7 @@ class Board extends React.Component {
               <div>
                 {this.state.board[0][0] ? (
                   <Mole
+                    moleDuration={moleDuration}
                     onClick={() => {
                       this.countScore();
                       this.playAudio();
@@ -124,6 +127,7 @@ class Board extends React.Component {
               <div>
                 {this.state.board[0][1] ? (
                   <Mole
+                    moleDuration={moleDuration}
                     onClick={() => {
                       this.countScore();
                       this.playAudio();
@@ -134,6 +138,7 @@ class Board extends React.Component {
               <div>
                 {this.state.board[0][2] ? (
                   <Mole
+                    moleDuration={moleDuration}
                     onClick={() => {
                       this.countScore();
                       this.playAudio();
@@ -144,6 +149,7 @@ class Board extends React.Component {
               <div>
                 {this.state.board[1][0] ? (
                   <Mole
+                    moleDuration={moleDuration}
                     onClick={() => {
                       this.countScore();
                       this.playAudio();
@@ -154,6 +160,7 @@ class Board extends React.Component {
               <div>
                 {this.state.board[1][1] ? (
                   <Mole
+                    moleDuration={moleDuration}
                     onClick={() => {
                       this.countScore();
                       this.playAudio();
@@ -164,6 +171,7 @@ class Board extends React.Component {
               <div>
                 {this.state.board[1][2] ? (
                   <Mole
+                    moleDuration={moleDuration}
                     onClick={() => {
                       this.countScore();
                       this.playAudio();
@@ -174,6 +182,7 @@ class Board extends React.Component {
               <div>
                 {this.state.board[2][0] ? (
                   <Mole
+                    moleDuration={moleDuration}
                     onClick={() => {
                       this.countScore();
                       this.playAudio();
@@ -184,6 +193,7 @@ class Board extends React.Component {
               <div>
                 {this.state.board[2][1] ? (
                   <Mole
+                    moleDuration={moleDuration}
                     onClick={() => {
                       this.countScore();
                       this.playAudio();
@@ -194,6 +204,7 @@ class Board extends React.Component {
               <div>
                 {this.state.board[2][2] ? (
                   <Mole
+                    moleDuration={moleDuration}
                     onClick={() => {
                       this.countScore();
                       this.playAudio();
