@@ -11,7 +11,6 @@
     grid-row-gap: 2vh;
     grid-column-gap: 10vh;
     position: absolute;
-    /* cursor: grab; */
     cursor: url("img/drumstick.png"), auto;
   }
 
@@ -58,12 +57,36 @@
     grid-row-gap: 10vw;
     grid-column-gap: 2vw;
     position: absolute;
+    cursor: url("img/drumstick.png"), auto;
+  }
+
+  .board > div {
+    position: relative;
+    top: 15vh;
+    width: 20vh;
+    height: 5vh;
+    border-radius: 50%;
+    padding-bottom: 15px;
+    background-color: #fddf687e;
   }
   .mole {
+    position: relative;
     background-image: url("./img/mock.png");
     background-size: cover;
+    top: -12vh;
     width: 20vw;
     height: 20vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .activeMole {
+    position: relative;
+    background-image: url("./img/shock.png");
+    background-size: cover;
+    top: -12vh;
+    width: 20vh;
+    height: 20vh;
     display: flex;
     align-items: center;
     justify-content: center;
