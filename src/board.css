@@ -8,8 +8,8 @@
     position: absolute;
   }
   .mole {
-    background-color: red;
-    border-radius: 50%;
+    background-image: url("./img/mock.png");
+    background-size: cover;
     width: 20vh;
     height: 20vh;
     display: flex;
@@ -28,8 +28,8 @@
     position: absolute;
   }
   .mole {
-    background-color: red;
-    border-radius: 50%;
+    background-image: url("./img/mock.png");
+    background-size: cover;
     width: 20vw;
     height: 20vw;
     display: flex;
