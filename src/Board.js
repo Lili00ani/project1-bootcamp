@@ -1,6 +1,6 @@
 import React from "react";
 import Mole from "./Mole";
-import "./board.css";
+import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import audio from "./audio/sound.wav";
 
@@ -102,7 +102,7 @@ class Board extends React.Component {
       </div>
     );
 
-    const moleDuration = 1000 - this.state.score * 5;
+    const moleDuration = 1100 - this.state.score * 8;
 
     return (
       <div>
@@ -113,6 +113,7 @@ class Board extends React.Component {
         <div className="main">
           {this.state.mode === "play" && (
             <div className="board">
+              {" "}
               <div>
                 {this.state.board[0][0] ? (
                   <Mole

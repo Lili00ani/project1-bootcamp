@@ -1,5 +1,5 @@
 import React from "react";
-import "./board.css";
+import "./App.css";
 
 class Mole extends React.Component {
   constructor(props) {
@@ -37,11 +37,9 @@ class Mole extends React.Component {
     const { isVisible } = this.state;
     return (
       <div>
-        {isVisible && (
-          <div>
-            <div className="mole" onClick={this.handleClick}></div>
-          </div>
-        )}
+        <div>
+          {isVisible && <div className="mole" onClick={this.handleClick}></div>}
+        </div>
       </div>
     );
   }

@@ -5,9 +5,13 @@ class Home extends React.Component {
   render() {
     return (
       <div className="front-page">
-        <h1>Whac-a-mole Game</h1>
+        <h1>Catch-a-Mocking-Chicken</h1>
         <div className="start">
-          <button className="btn btn-dark" onClick={this.props.onPlayClick}>
+          <button
+            type="button"
+            class="btn btn-dark"
+            onClick={this.props.onPlayClick}
+          >
             Play
           </button>
         </div>
