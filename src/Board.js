@@ -32,6 +32,8 @@ class Board extends React.Component {
       mode: "play",
       timerDuration: TIMER,
       timerRemaining: TIMER + 2,
+      positionMoleI: null,
+      positionMoleJ: null,
     };
   }
 
@@ -39,13 +41,22 @@ class Board extends React.Component {
   addMole = () => {
     let indexI = Math.floor(Math.random() * 3);
     let indexJ = Math.floor(Math.random() * 3);
-    console.log(indexI, indexJ);
-    // const copiedBoard = this.state.board.map((row) => [...row]);
+
+    while (
+      indexI === this.state.positionMoleI &&
+      indexJ === this.state.positionMoleJ
+    ) {
+      indexI = Math.floor(Math.random() * 3);
+      indexJ = Math.floor(Math.random() * 3);
+    }
+
     const copiedBoard = createBoard();
     copiedBoard[indexI][indexJ] = true;
 
     this.setState({
       board: copiedBoard,
+      positionMoleI: indexI,
+      positionMoleJ: indexJ,
     });
   };
 
@@ -103,7 +114,7 @@ class Board extends React.Component {
       </div>
     );
 
-    const moleDuration = Math.max(550, 1100 - this.state.score * 8);
+    const moleDuration = Math.max(600, 1100 - this.state.score * 7);
 
     return (
       <div>
