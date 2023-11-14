@@ -1,5 +1,6 @@
 import React from "react";
 import Mole from "./Mole";
+import End from "./End";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import audio from "./audio/chick.mp3";
@@ -108,27 +109,29 @@ class Board extends React.Component {
   render() {
     const messageEnd = (
       <div>
-        <button className="btn btn-dark" onClick={() => this.reset()}>
-          Play Again
-        </button>
+        <End score={this.state.score} reset={this.reset} />
       </div>
     );
 
     const moleDuration = Math.max(600, 1100 - this.state.score * 7);
 
+    const headerGame = (
+      <div className="header">
+        <p>Score: {this.state.score} points</p>
+        <div className="progress-bar">
+          <ProgressBar
+            variant="warning"
+            animated
+            now={this.state.timerRemaining * 2}
+            style={{ width: "100%" }}
+          />
+        </div>
+      </div>
+    );
+
     return (
       <div>
-        <div className="header">
-          <p>Score: {this.state.score} points</p>
-          <div className="progress-bar">
-            <ProgressBar
-              variant="warning"
-              animated
-              now={this.state.timerRemaining * 2}
-              style={{ width: "100%" }}
-            />
-          </div>
-        </div>
+        {this.state.mode === "play" && headerGame}
 
         <div className="main">
           {this.state.mode === "play" && (
@@ -236,9 +239,7 @@ class Board extends React.Component {
             </div>
           )}
 
-          <div className="restart">
-            {this.state.mode === "end" && messageEnd}
-          </div>
+          <div>{this.state.mode === "end" && messageEnd}</div>
         </div>
       </div>
     );

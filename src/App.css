@@ -10,7 +10,6 @@
     grid-template-rows: 20vh 20vh 20vh;
     grid-row-gap: 2vh;
     grid-column-gap: 10vh;
-    position: absolute;
     cursor: url("img/drumstick.png"), auto;
   }
 
@@ -50,6 +49,11 @@
 
   .progress-bar {
     width: 80vh;
+  }
+
+  .end-page-image {
+    width: 50vh;
+    height: 50vh;
   }
 }
 
@@ -99,6 +103,11 @@
   .progress-bar {
     width: 66vw;
   }
+
+  .end-page-image {
+    width: 50vw;
+    height: 50vw;
+  }
 }
 
 .main {
@@ -109,6 +118,7 @@
 }
 
 .header {
+  font-family: "Blomberg", Times, serif;
   font-size: 20px;
   width: 100vw;
   display: flex;
@@ -117,13 +127,6 @@
   align-items: center;
   margin-bottom: 5vh;
   margin-top: 7vh;
-}
-
-.restart {
-  display: flex;
-  height: 60vh;
-  justify-content: center;
-  align-items: center;
 }
 
 .front-page {
@@ -152,4 +155,19 @@
 
 button {
   font-size: 20px !important;
+  padding-left: 4vw !important;
+  padding-right: 4vw !important;
+  font-family: "Blomberg", Times, serif !important;
+  background-color: brown !important;
+  border-color: brown !important;
+}
+
+.end-page {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Blomberg", Times, serif;
 }
