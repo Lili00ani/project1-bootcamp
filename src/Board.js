@@ -3,6 +3,7 @@ import Mole from "./Mole";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import audio from "./audio/chick.mp3";
+import ProgressBar from "react-bootstrap/ProgressBar";
 
 const BOARD_X = 3;
 const BOARD_Y = 3;
@@ -30,7 +31,7 @@ class Board extends React.Component {
       score: 0,
       mode: "play",
       timerDuration: TIMER,
-      timerRemaining: TIMER,
+      timerRemaining: TIMER + 2,
     };
   }
 
@@ -69,13 +70,13 @@ class Board extends React.Component {
     this.timerId2 = setInterval(() => {
       if (this.state.timerRemaining > 0) {
         this.setState((prevState) => ({
-          timerRemaining: prevState.timerRemaining - 1,
+          timerRemaining: prevState.timerRemaining - 0.1,
         }));
       } else {
         this.setState({ mode: "end" });
         clearInterval(this.timerId2);
       }
-    }, 1000);
+    }, 100);
   };
 
   componentDidMount() {
@@ -108,8 +109,16 @@ class Board extends React.Component {
       <div>
         <div className="header">
           <p>Score: {this.state.score} points</p>
-          <p>Time Left: {this.state.timerRemaining} s</p>
+          <div className="progress-bar">
+            <ProgressBar
+              variant="warning"
+              animated
+              now={this.state.timerRemaining * 2}
+              style={{ width: "100%" }}
+            />
+          </div>
         </div>
+
         <div className="main">
           {this.state.mode === "play" && (
             <div className="board">

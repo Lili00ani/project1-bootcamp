@@ -47,6 +47,10 @@
     align-items: center;
     justify-content: center;
   }
+
+  .progress-bar {
+    width: 80vh;
+  }
 }
 
 @media screen and (max-width: 499px) {
@@ -91,6 +95,10 @@
     align-items: center;
     justify-content: center;
   }
+
+  .progress-bar {
+    width: 66vw;
+  }
 }
 
 .main {
@@ -102,9 +110,10 @@
 
 .header {
   font-size: 15px;
+  width: 100vw;
   display: flex;
   flex-direction: column;
-  width: 100vw;
+  justify-content: center;
   align-items: center;
   margin-bottom: 5vh;
   margin-top: 7vh;
