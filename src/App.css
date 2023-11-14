@@ -13,6 +13,10 @@
     cursor: url("img/drumstick.png"), auto;
   }
 
+  .rotated-cursor {
+    cursor: url("img/drumstick2.png"), auto;
+  }
+
   .board > div {
     position: relative;
     top: 15vh;
@@ -64,7 +68,6 @@
     grid-template-rows: 20vw 20vw 20vw;
     grid-row-gap: 10vw;
     grid-column-gap: 2vw;
-    position: absolute;
     cursor: url("img/drumstick.png"), auto;
   }
 
@@ -126,7 +129,7 @@
   justify-content: center;
   align-items: center;
   margin-bottom: 5vh;
-  margin-top: 7vh;
+  margin-top: 5vh;
 }
 
 .front-page {
