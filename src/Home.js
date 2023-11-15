@@ -17,7 +17,7 @@ class Home extends React.Component {
         <div className="start">
           <button
             type="button"
-            class="btn btn-dark"
+            className="btn btn-dark"
             onClick={() => {
               this.props.onPlayClick();
               this.playAudio();

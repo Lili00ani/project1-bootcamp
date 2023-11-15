@@ -174,3 +174,8 @@ button {
   align-items: center;
   font-family: "Blomberg", Times, serif;
 }
+
+.successful-hit {
+  font-size: 100px;
+  position: relative;
+}

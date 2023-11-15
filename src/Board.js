@@ -8,7 +8,8 @@ import ProgressBar from "react-bootstrap/ProgressBar";
 
 const BOARD_X = 3;
 const BOARD_Y = 3;
-const TIMER = 50;
+const TIMER = 40;
+const SUCCESSFULHIT = 10;
 
 function createBoard() {
   const board = [];
@@ -40,9 +41,11 @@ class Board extends React.Component {
 
   //add random new mole in the board
   addMole = () => {
+    //randomise index for the board array
     let indexI = Math.floor(Math.random() * 3);
     let indexJ = Math.floor(Math.random() * 3);
 
+    //making sure the new mole position is different from previous mole position
     while (
       indexI === this.state.positionMoleI &&
       indexJ === this.state.positionMoleJ
@@ -53,7 +56,7 @@ class Board extends React.Component {
 
     const copiedBoard = createBoard();
     copiedBoard[indexI][indexJ] = true;
-
+    //update state of the board and mole position
     this.setState({
       board: copiedBoard,
       positionMoleI: indexI,
@@ -61,14 +64,15 @@ class Board extends React.Component {
     });
   };
 
+  //update all the scores
   countScore = () => {
-    //update all the scores
-
+    //every successful hit +10 points
     this.setState((prevState) => ({
-      score: prevState.score + 10,
+      score: prevState.score + SUCCESSFULHIT,
     }));
   };
 
+  //reset the state so player can restart the game
   reset = () => {
     this.setState({
       board: createBoard(),
@@ -78,6 +82,7 @@ class Board extends React.Component {
     });
   };
 
+  //timer function that will update every 0.1s
   countTimer = () => {
     this.timerId2 = setInterval(() => {
       if (this.state.timerRemaining > 0) {
@@ -91,6 +96,7 @@ class Board extends React.Component {
     }, 100);
   };
 
+  //when mole component is called, it will disappear after 2 seconds
   componentDidMount() {
     this.countTimer();
     this.timerId = setInterval(() => {
@@ -102,6 +108,7 @@ class Board extends React.Component {
     clearInterval(this.timerId);
   }
 
+  //play background music
   playAudio = () => {
     new Audio(audio).play();
   };
@@ -112,15 +119,11 @@ class Board extends React.Component {
         <End score={this.state.score} reset={this.reset} />
       </div>
     );
-
+    //duration of mole staying visible.
+    //depending on their score and minimum shortest duration is 0.6s.
     const moleDuration = Math.max(600, 1100 - this.state.score * 7);
 
-    const successfulHit = (
-      <div>
-        <h3>+10 points</h3>
-      </div>
-    );
-
+    //showing score + timer bar
     const headerGame = (
       <div className="header">
         <p>Score: {this.state.score} points</p>
@@ -128,7 +131,7 @@ class Board extends React.Component {
           <ProgressBar
             variant="warning"
             animated
-            now={this.state.timerRemaining * 2}
+            now={this.state.timerRemaining * 2.5}
             style={{ width: "100%" }}
           />
         </div>
@@ -150,7 +153,6 @@ class Board extends React.Component {
                     onClick={() => {
                       this.countScore();
                       this.playAudio();
-                      return successfulHit;
                     }}
                   />
                 ) : null}
