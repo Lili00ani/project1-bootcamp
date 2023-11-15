@@ -27,7 +27,7 @@ class Board extends React.Component {
   constructor(props) {
     super(props);
 
-    //creating 3x3 empty board
+    //creating 3x3 empty boards
     this.state = {
       board: createBoard(),
       score: 0,
