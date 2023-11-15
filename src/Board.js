@@ -9,7 +9,7 @@ import ProgressBar from "react-bootstrap/ProgressBar";
 //constant variable
 const BOARD_X = 3;
 const BOARD_Y = 3;
-const TIMER = 40;
+const TIMER = 30;
 const SUCCESSFULHIT = 10;
 
 function createBoard() {
@@ -79,6 +79,7 @@ class Board extends React.Component {
       board: createBoard(),
       score: 0,
       mode: "play",
+      timerDuration: TIMER,
       timerRemaining: TIMER,
     });
   };
@@ -122,7 +123,7 @@ class Board extends React.Component {
     );
     //duration of mole staying visible.
     //depending on their score and minimum shortest duration is 0.6s.
-    const moleDuration = Math.max(600, 1100 - this.state.score * 7);
+    const moleDuration = Math.max(600, 1100 - this.state.score * 10);
 
     //showing score + timer bar
     const headerGame = (
@@ -132,7 +133,7 @@ class Board extends React.Component {
           <ProgressBar
             variant="warning"
             animated
-            now={this.state.timerRemaining * 2.5}
+            now={this.state.timerRemaining * 3.33}
             style={{ width: "100%" }}
           />
         </div>

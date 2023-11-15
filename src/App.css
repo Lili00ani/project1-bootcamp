@@ -41,7 +41,7 @@
 
   .activeMole {
     position: relative;
-    background-image: url("./img/shock.png");
+    background-image: url("./img/shock_points.png");
     background-size: cover;
     top: -12vh;
     width: 20vh;
