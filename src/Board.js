@@ -6,6 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import audio from "./audio/chick.mp3";
 import ProgressBar from "react-bootstrap/ProgressBar";
 
+//constant variable
 const BOARD_X = 3;
 const BOARD_Y = 3;
 const TIMER = 40;
