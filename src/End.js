@@ -5,13 +5,17 @@ class End extends React.Component {
   render() {
     let finalScore = this.props.score;
     let imageURL = "";
+    let scoreText = "";
 
     if (finalScore < 40) {
       imageURL = require("./img/mock2.png");
+      scoreText = "Good start. Keep trying";
     } else if (finalScore >= 40 && finalScore <= 70) {
       imageURL = require("./img/sad.png");
+      scoreText = "Nice effort";
     } else {
       imageURL = require("./img/dead.png");
+      scoreText = "Egg-cellent Whacker";
     }
 
     return (
@@ -19,6 +23,7 @@ class End extends React.Component {
         <div className="end-page-image">
           <img src={imageURL} alt="score_image" style={{ maxWidth: "100%" }} />
         </div>
+        <h1>{scoreText}</h1>
         <h3>Your score is {this.props.score}</h3>
         <button className="btn btn-dark" onClick={this.props.reset}>
           Play Again

@@ -115,6 +115,12 @@ class Board extends React.Component {
 
     const moleDuration = Math.max(600, 1100 - this.state.score * 7);
 
+    const successfulHit = (
+      <div>
+        <h3>+10 points</h3>
+      </div>
+    );
+
     const headerGame = (
       <div className="header">
         <p>Score: {this.state.score} points</p>
@@ -144,6 +150,7 @@ class Board extends React.Component {
                     onClick={() => {
                       this.countScore();
                       this.playAudio();
+                      return successfulHit;
                     }}
                   />
                 ) : null}

@@ -13,6 +13,7 @@ class Home extends React.Component {
     return (
       <div className="front-page">
         <h1>Catch-a-Mocking-Chicken</h1>
+
         <div className="start">
           <button
             type="button"
