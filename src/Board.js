@@ -65,7 +65,7 @@ class Board extends React.Component {
     });
   };
 
-  //update all the scores
+  //update all the score
   countScore = () => {
     //every successful hit +10 points
     this.setState((prevState) => ({
