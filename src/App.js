@@ -11,6 +11,7 @@ class App extends React.Component {
     };
   }
 
+  // onPlayClick seems oddly named. I would probably name this startGame, showBoard or the like
   onPlayClick = () => {
     this.setState((prevState) => ({ showBoard: !prevState.showBoard }));
   };

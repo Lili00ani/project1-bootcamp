@@ -13,3 +13,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
+
+The readme is missing install instructions, also information about your project.
+Additionally I do not see any planning documents, like wireframes etc. linked here or in the project files.
