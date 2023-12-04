@@ -7,6 +7,8 @@ class End extends React.Component {
     let imageURL = "";
     let scoreText = "";
 
+    // i think it would be nicer if we would define a function to return us the result here.
+    // const { imageURL, scoreText } = getResults() or something along those lines
     if (finalScore < 40) {
       imageURL = require("./img/mock2.png");
       scoreText = "Good start. Keep trying";
